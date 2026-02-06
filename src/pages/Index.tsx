@@ -4,6 +4,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Icon from "@/components/ui/icon";
 
 export default function Index() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -25,16 +32,16 @@ export default function Index() {
             Торговые полки в магазинах Астаны. Без участия инвестора.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8 py-6">
+            <Button size="lg" className="text-lg px-8 py-6" onClick={() => scrollToSection('contact')}>
               Получить расчет
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6" onClick={() => scrollToSection('how-it-works')}>
               Как работает модель
             </Button>
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-20">
+        <section id="how-it-works" className="container mx-auto px-4 py-20">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Как работает модель</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="border-border bg-card hover:border-primary transition-colors duration-300">
@@ -75,7 +82,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-20">
+        <section id="benefits" className="container mx-auto px-4 py-20">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Ключевые преимущества</h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
@@ -103,7 +110,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-20 bg-card/30">
+        <section id="trust" className="container mx-auto px-4 py-20 bg-card/30">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">Прозрачность и доверие</h2>
             <p className="text-center text-muted-foreground mb-12 text-lg">
@@ -150,7 +157,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-20">
+        <section id="example" className="container mx-auto px-4 py-20">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">Пример модели инвестирования</h2>
             <p className="text-center text-muted-foreground mb-12">
@@ -204,7 +211,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-20 bg-card/30">
+        <section id="faq" className="container mx-auto px-4 py-20 bg-card/30">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Часто задаваемые вопросы</h2>
             <Accordion type="single" collapsible className="space-y-4">
@@ -265,7 +272,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-24 text-center">
+        <section id="contact" className="container mx-auto px-4 py-24 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Получите индивидуальный расчет</h2>
             <p className="text-lg text-muted-foreground mb-8">
